@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Options</title>
+
+  <link rel="stylesheet" type="text/css" href="admin_options.css">
+</head>
+<body>
+
+  <div class="wrapper">
+    <h1>Admin Options </h1>
+    <button onclick="openReservation()">Search Reservations</button>
+    <button onclick="openCarStatus()">Car Status</button>
+    <button onclick="openDailyPayment()">Daily Payment</button>
+    <button onclick="reserve()">Reserve</button>
+    <button onclick="Cancel()">Cancel</button>
+    <button onclick="InsertCar()">Insert Car</button>
+    <button onclick="OutOfService()">Change Status</button>
+  </div>
+
+  <script>
+    function openReservation() {
+      // Redirect to the reservation page
+      window.location.href = "reservation_admin.html";
+    }
+
+    function openCarStatus() {
+      // Redirect to the car status page
+      window.location.href = "car_status.html";
+    }
+
+    function openDailyPayment() {
+      // Redirect to the daily payment page
+      window.location.href = "daily_payment.html";
+    }
+    function reserve() {
+      window.location.href = "reserve.html";
+    }
+    function Cancel() {
+      window.location.href = "cancel.html";
+    }
+    function InsertCar() {
+      window.location.href = "insert_admin.html";
+    }
+    function OutOfService() {
+      window.location.href = "service.html";
+    }
+
+  </script>
+</body>
+</html>

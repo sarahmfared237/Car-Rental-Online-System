@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>Reserve</title>
+    <link rel="stylesheet" type="text/css" href="reserve.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+        $('form').submit(function(e) {
+          e.preventDefault();
+          var PlateID = $('#PlateID').val();
+          var CustomerID = $('#CustomerID').val();
+          var datepicker1 = $('#datepicker1').val();
+          var datepicker2 = $('#datepicker2').val();
+      
+          $.ajax({
+            type: 'POST',
+            url: 'reserve.php',
+            data: {
+              PlateID: PlateID,
+              CustomerID: CustomerID,
+              datepicker1: datepicker1,
+              datepicker2: datepicker2
+            },
+            success: function(response) {
+              showAlert(response);
+            }
+          });
+        });
+      
+        function showAlert(message) {
+          alert(message);
+        }
+      });
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="form-wrapper options">
+            <form method="post" action="reserve.php">
+                <h2>Reserve</h2>
+                <!-- Reservation fields -->
+                <div class="input-group">
+                    <label>Plate ID</label>
+                    <input name="PlateID" id="PlateID" type="text">
+                </div>
+                <div class="input-group">
+                    <label>Customer ID</label>
+                    <input name="CustomerID" id="CustomerID" type="text">
+                </div>
+                <div class="input-group">
+                    <label for="datepicker">Select Pick-up Date:</label>
+                    <input type="date" id="datepicker1" name="datepicker1">
+                </div>
+                <div class="input-group">
+                    <label for="datepicker">Select Return Date:</label>
+                    <input type="date" id="datepicker2" name="datepicker2">
+                </div>
+                <button type="submit">Reserve</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

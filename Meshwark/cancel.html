@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Cancel</title>
+    <link rel="stylesheet" type="text/css" href="cancel.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('form').submit(function(e) {
+                e.preventDefault();
+                var ReservationID = $('#ReservationID').val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'cancel.php',
+                    data: { cancel: 'Cancel', ReservationID: ReservationID },
+                    success: function(response) {
+                        showAlert(response);
+                    }
+                });
+            });
+
+            function showAlert(message) {
+                alert(message);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="form-wrapper options">
+            <form method="post" action="cancel.php">
+                <h3>Cancel Reservation</h3>
+                <!-- Cancellation field -->
+                <div class="input-group">
+                    <label>Reservation ID</label>
+                    <input name="ReservationID" id="ReservationID" type="text">
+                </div>
+                <button type="submit"name="cancel">Cancel</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

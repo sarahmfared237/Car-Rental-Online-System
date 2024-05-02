@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins';
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('paym.jpg') no-repeat;
+  background-size: cover;
+}
+.wrapper {
+  /*margin-left: 600px;*/
+  position: relative;
+  width: 400px;
+  height: 550px;
+  background: transparent;
+  backdrop-filter: blur(50px);
+  box-shadow: 0 0 25px rgb(255, 64, 0);
+  border-radius: 20px;
+  padding: 40px;
+  overflow: hidden;
+}
+.wrapper:hover {
+  animation: animate 1s linear infinite;
+}
+
+.form-wrapper {
+  display: flex;
+  padding: 100px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+  transition: 1s ease-in-out;
+}
+.wrapper.active .form-wrapper.sign-in {
+  transform: translateY(-600px);
+}
+.wrapper .form-wrapper.sign-up {
+  position: absolute;
+  top: 500px;
+  left: 0;
+}
+.wrapper.active .form-wrapper.sign-up {
+  transform: translateY(-480px);
+}
+
+.wrapper .form-wrapper.sign-in h2 {
+  top: -80px;
+  left: 160px;
+}
+.wrapper .form-wrapper.sign-in .input-group {
+  top: 5px;
+  left: 5px;
+  margin: 30px 0;
+}
+.wrapper .form-wrapper.sign-in .input-group label {
+  top: -10px;
+  left: 10px;
+}
+.wrapper .form-wrapper.sign-in .input-group input {
+  bottom: 30px;
+  left: 10px;
+}
+
+.wrapper .form-wrapper.sign-in button {
+  position: relative;
+  top: 5px;
+  left: 5px;
+}
+
+.wrapper .form-wrapper.sign-in .signUp-link{
+  position: relative;
+  top: 5px;
+  left: 10px;
+} /*vvvvvvvvvvvvvv*/
+
+.wrapper .form-wrapper.sign-up h2 {
+  position: absolute;
+  top: 15px;
+  left: 100px;
+}
+.wrapper .form-wrapper.sign-up .input-group {
+  top: 40px;
+  left: 10px;
+}
+.wrapper .form-wrapper.sign-up .input-group label {
+  top: -8px;
+  left: 10px;
+}
+.wrapper .form-wrapper.sign-up .input-group input {
+  bottom: 30px;
+  left: 10px;
+}
+
+.wrapper .form-wrapper.sign-up button {
+  position: relative;
+  top: 50px;
+  left: 5px;
+}
+
+.wrapper .form-wrapper.sign-up .signUp-link{
+  position: relative;
+  top: 50px;
+  left: 10px;
+}
+
+h2 {
+  font-size: 30px;
+  color: #000;
+  text-align: center;
+  margin-top: 30px;
+}
+.input-group {
+  position: relative;
+  margin: 15px 0;
+  border-bottom: 2px solid #000;
+}
+.input-group label {
+  position: absolute;
+  top: -15px;
+  left: 5px;
+  transform: translateY(-30%);
+  font-size: 16px;
+  color: #000;
+  pointer-events: none;
+  /*transition: .5s;*/
+}
+.input-group input {
+  width: 320px;
+  height: 30px;
+  font-size: 13px;
+  color: #000;
+  padding: 0 20px;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+button {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background: rgb(255, 64, 0);
+  box-shadow: 0 0 10px rgb(255, 64, 0);
+  font-size: 16px;
+  color: #000;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+}
+.signUp-link {
+  font-size: 10px;
+  text-align: center;
+  margin: 5px 0;
+}
+.signUp-link p {
+  color: #000;    /*Don't have an account?*/
+}
+.signUp-link p a {
+  color: rgb(255, 64, 0);
+  text-decoration: none;  /*Register/ login*/
+  font-weight: 500;
+}
+.signUp-link p a:hover {
+  text-decoration: underline;
+}

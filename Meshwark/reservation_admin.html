@@ -1,0 +1,77 @@
+<html>
+<head>
+  <title>Reservations</title>
+  <link rel="stylesheet" type="text/css" href="reservation_ad.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('form').submit(function(e) {
+        
+          e.preventDefault();
+          var startPeriod = $('#startPeriod').val();
+          var endPeriod = $('#endPeriod').val();
+          var carId = $('#carId').val();
+          var customerSsn = $('#customerSsn').val();
+        
+
+        $.ajax({
+          type: 'POST',
+          url: 'reservation_admin.php',
+          data: {
+            search: 'Search',
+            startPeriod: startPeriod,
+            endPeriod: endPeriod,
+            carId: carId,
+            customerSsn: customerSsn
+          },
+          success: function(response) {
+            
+            if (response == "Invalid period. Please make sure the end date is not earlier than the start date."|| response == "Incorrect Plate ID. Please enter a valid Plate ID." || response == "Incorrect Customer SSN. Please enter a valid Customer SSN." || response == "No Reservation found.") {
+              showAlert(response);
+            }
+            else
+            {
+              openReservationOutput(response);
+            }
+          }
+        });
+      });
+
+      function showAlert(message) {
+        alert(message);
+      } 
+      function openReservationOutput(htmlContent) {
+      var encodedContent = encodeURIComponent(htmlContent);
+      window.location.href = 'reservationOutput.html?content=' + encodedContent;
+    }
+    });
+  </script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="form-wrapper sign-in">
+      <form name="loform" method="post" action="reservation_admin.php">
+        <h1>Period</h1>
+        <div class="input-group">
+          <input name="startPeriod" type="date" id="startPeriod">
+          <label>From</label>
+          <br>
+        </div>
+        <div class="input-group">
+          <input name="endPeriod" type="date" id="endPeriod">
+          <label>To</label>
+        </div>
+        <h2>Car_ID</h2>
+        <div class="input-group">
+          <input name="carId" type="text" id="carId">
+        </div>
+        <h3>Customer_SSN</h3>
+        <div class="input-group">
+          <input name="customerSsn" type="text" id="customerSsn">
+        </div>
+        <button type="submit"name="search">Search</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

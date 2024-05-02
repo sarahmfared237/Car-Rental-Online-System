@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Update Car Status</title>
+  <link rel="stylesheet" type="text/css" href="service.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('form').submit(function(e) {
+        e.preventDefault();
+        var plateId = $('#plateId').val();
+
+        $.ajax({
+          type: 'POST',
+          url: 'service.php',
+          data: { change: 'Change', plateId: plateId },
+          success: function(response) {
+            showAlert(response);
+          }
+        });
+      });
+
+      function showAlert(message) {
+        alert(message);
+      }
+    });
+  </script>
+</head>
+<body>
+<div class="wrapper">
+  <h1>Car Status Update</h1>
+  <form method="POST" action="service.php">
+    <div class="input-group">
+    <label for="plateId">PlateID:</label>
+    <input type="text" id="plateId" name="plateId" required>
+    </div>
+    <button type="submit" name="change">Change</button>
+  </form>
+</div>
+</body>
+</html>

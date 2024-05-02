@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daily Payments</title>
+  <link rel="stylesheet" type="text/css" href="daily_payment.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('form').submit(function(e) {
+        
+          e.preventDefault();
+          var startPeriod = $('#startPeriod').val();
+          var endPeriod = $('#endPeriod').val();
+        
+
+        $.ajax({
+          type: 'POST',
+          url: 'daily_payment.php',
+          data: {
+            search: 'Search',
+            startPeriod: startPeriod,
+            endPeriod: endPeriod,
+          },
+          success: function(response) {
+            
+            if (response == "Please enter both dates"|| response == "Invalid period. Please make sure the end date is not earlier than the start date." || response == "No payments in the specified period.") {
+              showAlert(response);
+            }
+            else
+            {
+              openReservationOutput(response);
+            }
+          }
+        });
+      });
+
+      function showAlert(message) {
+        alert(message);
+      } 
+      function openReservationOutput(htmlContent) {
+      var encodedContent = encodeURIComponent(htmlContent);
+      window.location.href = 'daily_payment_output.html?content=' + encodedContent;
+    }
+    });
+  </script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="form-wrapper sign-in">
+      <form name="loform" method="post" action="paymentOutput.php">
+        <h1>Period</h1>
+        <div class="input-group" >
+          <input name="startPeriod" type="date" id="startPeriod">
+          <label>From</label>
+          <br>
+        </div>
+        <div class="input-group" >
+          <input name="endPeriod" type="date" id="endPeriod">
+          <label>To</label>
+        </div> <!-- Added closing tag for the second div -->
+        <button type="submit"name="search">Search</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

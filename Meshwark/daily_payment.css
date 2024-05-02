@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('paym.jpg') no-repeat;
+  background-size: cover;
+
+}
+
+.wrapper {
+  position: relative;
+  width: 400px;
+  height: 350px;
+  background: transparent;
+  backdrop-filter: blur(50px);
+  box-shadow: 0 0 25px rgb(228, 28, 128);
+  border-radius: 20px;
+  padding: 40px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Arrange buttons vertically */
+  justify-content: center; /* Center align buttons vertically */
+  align-items: center; /* Center align buttons horizontally */
+}
+.wrapper:hover {
+  animation: animate 1s linear infinite;
+}
+
+.form-wrapper {
+  display: flex;
+  padding: 100px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+  transition: 1s ease-in-out;
+}
+h1 {
+  font-size: 30px;
+  color: #000;
+  text-align: center;
+  margin-top: 7px;
+  font-weight: 700;
+}
+
+.input-group {
+  position: relative;
+  margin: 35px 0;
+  border-bottom: 2px solid #000;
+  
+}
+
+.input-group label {
+  position: absolute;
+  top: -20px;
+  left: 5px;
+  transform: translateY(-30%);
+  font-size: 16px;
+  color: #000;
+  pointer-events: none;
+  /*transition: .5s;*/
+}
+
+.input-group input {
+  width: 320px;
+  height: 30px;
+  font-size: 16px;
+  color: #1e1896;
+  padding: 0 20px;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+button {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background: rgb(255, 64, 0);
+  box-shadow: 0 0 10px rgb(255, 64, 0);
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  margin-bottom: 2px; /* Add margin between buttons */
+  margin-Top: 40px;
+}

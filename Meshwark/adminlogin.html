@@ -1,0 +1,71 @@
+<html>
+<head>
+  <title>Admin Login</title>
+  <link rel="stylesheet" type="text/css" href="admin.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+     $(document).ready(function() {
+      $('form').submit(function(e) {
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var emailvalid = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    if(email == null || email == "") {
+        e.preventDefault();
+        showAlert("Email is required");
+        return;
+    }
+    else if(password == null || password =="") {
+        e.preventDefault();
+        showAlert("Password is required");
+        return;
+    }
+    
+    else if(email.search(emailvalid)== -1) {
+        e.preventDefault();
+        showAlert("Invalid Email Address");
+        return;
+    }
+    else{
+      e.preventDefault();
+      var email = $('#email').val(); // Update ID to match the HTML form
+      var password = $('#password').val();
+      $.ajax({
+          type: 'POST',
+          url: 'adminlogin.php',
+          data: { login: 'Login', email: email,  password: password},
+          success: function(response) {
+            if (response === "Incorrect Email or Password") {
+                  showAlert(response);
+                    
+            }
+            else {window.location.href = 'Admin_Options.html';}
+          }
+        });}
+      });
+
+      function showAlert(message) {
+        alert(message);
+      }  
+  });
+</script>
+
+</head>
+<body>
+  <div class="wrapper">
+    <div class="form-wrapper sign-in">
+      <form name="loform" method="post" action="adminlogin.php">
+        <h2>Login</h2>
+        <div class="input-group">
+          <input name="email" id="email" type="text">
+          <label>Email</label>
+        </div>
+        <div class="input-group">
+          <input name="password" id="password" type="password">
+          <label>Password</label>
+        </div>
+        <button type="submit" name="login">Login</button>
+      </form>
+    </div>
+
+</body>
+</html>

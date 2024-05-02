@@ -1,0 +1,83 @@
+<html>
+<head>
+  <title>Insert</title>
+  <link rel="stylesheet" type="text/css" href="insert_ad.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+  $('form').submit(function(e) {
+    e.preventDefault();
+    var plate_id = $('#plate_id').val();
+    var model = $('#model').val();
+    var year = $('#year').val();
+    var NoPassengers = $('#NoPassengers').val();
+    var Status = $('#Status').val();
+    var PricePerDay = $('#PricePerDay').val();
+    var OfficeID = $('#OfficeID').val();
+
+    $.ajax({
+      type: 'POST',
+      url: 'insert_admin.php',
+      data: {
+        plate_id: plate_id,
+        model: model,
+        year: year,
+        NoPassengers: NoPassengers,
+        Status: Status,
+        PricePerDay: PricePerDay,
+        OfficeID: OfficeID
+      },
+      success: function(response) {
+        showAlert(response);
+      }
+    });
+  });
+
+  function showAlert(message) {
+    alert(message);
+  }
+});
+  </script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="form-wrapper sign-in">
+      <form name="loform" method="post" action="insert_admin.php">
+        <h1>Plate ID</h1>
+        <div class="input-group">
+          <input name="plate_id" type="text" id="plate_id">
+        </div>
+        <h2>Model</h2>
+        <div class="input-group">
+          <input name="model" type="text" id="model">
+        </div>
+        <h3>year</h3>
+        <div class="input-group">
+          <input name="year" type="text" id="year">
+        </div>
+        <h4>Number Of Passengers</h4>
+        <div class="input-group">
+          <input name="NoPassengers" type="text" id="NoPassengers">
+        </div>
+        <h5>Status</h5>
+        <div class="input-group">
+          <!-- Use a select element for Status -->
+          <select name="Status" id="Status">
+            <option value="Active">Active</option>
+            <option value="OutOfService">OutOfService</option>
+          </select>
+        </div>
+        <h6>Price Per Day</h6>
+        <div class="input-group">
+          <input name="PricePerDay" type="text" id="PricePerDay">
+        </div>
+        <header>Office ID</header>
+        <div class="input-group">
+          <input name="OfficeID" type="text" id="OfficeID">
+        </div>
+        <button type="submit">Insert</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

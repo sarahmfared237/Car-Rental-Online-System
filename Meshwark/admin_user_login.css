@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins';
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('paym.jpg') no-repeat;
+  background-size: cover;
+}
+.wrapper {
+  margin-left: 100px;
+  position: relative;
+  width: 450px;
+  height: 400px;
+  background: transparent;
+  padding: 40px;
+  overflow: hidden;
+}
+.wrapper:hover {
+  animation: animate 1s linear infinite;
+}
+
+.form-wrapper {
+  display: flex;
+  padding: 100px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+  transition: 1s ease-in-out;
+}
+
+header {
+  color: rgb(255, 64, 0);
+  text-align: center;
+  padding: 10px;
+}
+
+h2 {
+  font-size: 100px;
+  color: rgb(255, 64, 0);
+  text-align: center;
+  margin-top: -350px;
+  margin-right: 350px;
+}
+
+.slogan {
+  font-size: 20px;
+  color: rgb(255, 64, 0);
+  margin-top: -30px;
+  top: 300;
+  font-weight: bold;
+  margin-right: 350px;
+}
+
+button {
+  position: relative;
+  width: 250px;
+  height: 40px;
+  top: 30;
+  margin-bottom: 50px;
+  background: rgb(255, 64, 0);
+  box-shadow: 0 0 10px rgb(255, 64, 0);
+  font-size: 16px;
+  color: #000;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+}

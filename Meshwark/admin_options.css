@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('paym.jpg') no-repeat;
+  background-size: cover;
+}
+
+.wrapper {
+  position: relative;
+  width: 400px;
+  height: 500px;
+  background: transparent;
+  backdrop-filter: blur(50px);
+  box-shadow: 0 0 25px rgb(41, 136, 4);
+  border-radius: 20px;
+  padding: 40px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Arrange buttons vertically */
+  justify-content: center; /* Center align buttons vertically */
+  align-items: center; /* Center align buttons horizontally */
+}
+
+.wrapper:hover {
+  animation: animate 1s linear infinite;
+}
+
+.form-wrapper {
+  display: flex;
+  padding: 100px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+  transition: 1s ease-in-out;
+}
+
+.wrapper.active .form-wrapper.sign-in {
+  transform: translateY(-500px);
+}
+
+.wrapper .form-wrapper.sign-up {
+  position: absolute;
+  top: 500px;
+  left: 0;
+}
+
+.wrapper.active .form-wrapper.sign-up {
+  transform: translateY(-480px);
+}
+
+h1 {
+  font-size: 30px;
+  color: #000;
+  text-align: center ;
+  margin-top: 21px;
+  height: 100px;
+  font-weight: 700;
+}
+
+
+
+button {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background: rgb(255, 64, 0);
+  box-shadow: 0 0 10px rgb(255, 64, 0);
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  margin-bottom: 10px; /* Add margin between buttons */
+}
